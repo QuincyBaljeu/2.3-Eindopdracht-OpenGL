@@ -7,14 +7,16 @@
 
 using tigl::Vertex;
 
-class enviromentUtilities
+class enviroment
 {
 public:
-	enviromentUtilities();
-	~enviromentUtilities();
+	enviroment();
+	~enviroment();
 
 	GLuint textureId = -1;
 	
 	void loadFloor();
+	void update(GLFWwindow*);
+	void draw();
 };
 

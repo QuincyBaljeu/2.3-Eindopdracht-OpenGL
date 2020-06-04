@@ -30,7 +30,10 @@
     <ClCompile Include="FpsCam.cpp">
       <Filter>Source Files\Interaction</Filter>
     </ClCompile>
-    <ClCompile Include="enviromentUtilities.cpp">
+    <ClCompile Include="Cube.cpp">
+      <Filter>Source Files\Enviroment</Filter>
+    </ClCompile>
+    <ClCompile Include="enviroment.cpp">
       <Filter>Source Files\Enviroment</Filter>
     </ClCompile>
   </ItemGroup>
@@ -41,10 +44,13 @@
     <ClInclude Include="FpsCam.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="enviromentUtilities.h">
+    <ClInclude Include="stb_image.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="stb_image.h">
+    <ClInclude Include="Cube.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="enviroment.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

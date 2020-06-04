@@ -155,13 +155,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="enviromentUtilities.cpp" />
+    <ClCompile Include="Cube.cpp" />
+    <ClCompile Include="enviroment.cpp" />
     <ClCompile Include="FpsCam.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="tigl.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="enviromentUtilities.h" />
+    <ClInclude Include="Cube.h" />
+    <ClInclude Include="enviroment.h" />
     <ClInclude Include="FpsCam.h" />
     <ClInclude Include="stb_image.h" />
     <ClInclude Include="tigl.h" />

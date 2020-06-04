@@ -1,9 +1,8 @@
 //header files
 #include "tigl.h"
 #include "FpsCam.h"
-#include "enviromentUtilities.h"
-
-
+#include "enviroment.h"
+#include "Cube.h"
 
 //lib files
 #include <GL/glew.h>
@@ -92,20 +91,11 @@ void draw()
 
     tigl::shader->enableColor(false);
     tigl::shader->enableTexture(true);
-
-
-        
+    
     glEnable(GL_DEPTH_TEST);
     
     //drawing
-
-    tigl::begin(GL_TRIANGLES);
-    tigl::addVertex(Vertex::PC(glm::vec3(-2, -1, -4), glm::vec4(1, 0, 0, 1)));
-    tigl::addVertex(Vertex::PC(glm::vec3(2, -1, -4), glm::vec4(0, 1, 0, 1)));
-    tigl::addVertex(Vertex::PC(glm::vec3(0, 1, -4), glm::vec4(0, 0, 1, 1)));
-    tigl::end();
-
-    enviromentUtilities evUtil;
-
+    enviroment evUtil;
+    
     evUtil.loadFloor();
 }
