@@ -1,11 +1,14 @@
 //header files
 #include "tigl.h"
 #include "FpsCam.h"
+#include "Environment.h"
+#include "Cube.h"
 
 //lib files
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <glm/gtc/matrix_transform.hpp>
+#include <iostream>;
 
 //misc.
 using tigl::Vertex;
@@ -18,10 +21,19 @@ using tigl::Vertex;
 void init();
 void update();
 void draw();
+void keyCallBack(GLFWwindow*, int, int, int, int);
 
 //Attributes
 GLFWwindow* window;
 double lastFrameTime;
+FpsCam* camera;
+
+//Cubes
+Cube cube1(0, -1, 0);
+Cube cube2(0, -1, 2);
+Cube cube3(0, -1, 4);
+Cube cube4(0, -1, 6);
+Cube cube5(0, -1, 8);
 
 int main(void)
 {
@@ -53,15 +65,9 @@ int main(void)
     return 0;
 }
 
-FpsCam* camera;
-
 void init()
 {
-    glfwSetKeyCallback(window, [](GLFWwindow* window, int key, int scancode, int action, int mods)
-    {
-        if (key == GLFW_KEY_ESCAPE)
-            glfwSetWindowShouldClose(window, true);
-    });
+    glfwSetKeyCallback(window, keyCallBack);
     camera = new FpsCam(window);
 }
 
@@ -70,7 +76,10 @@ void update()
     double currentTime = glfwGetTime();
     double deltaTime = currentTime - lastFrameTime;
     lastFrameTime = currentTime;
-    camera->update(window);
+    
+    camera->update(window); 
+    
+    cube1.update(deltaTime);
 }
 
 void draw()
@@ -87,26 +96,32 @@ void draw()
     tigl::shader->setViewMatrix(camera->getMatrix());
     tigl::shader->setModelMatrix(glm::mat4(1.0f));
 
-    tigl::shader->enableColor(true);
+    tigl::shader->enableColor(false);
+    tigl::shader->enableTexture(true);
 
     glEnable(GL_DEPTH_TEST);
-    
-    //drawing
 
-    tigl::begin(GL_TRIANGLES);
-    tigl::addVertex(Vertex::PC(glm::vec3(-2, -1, -4), glm::vec4(1, 0, 0, 1)));
-    tigl::addVertex(Vertex::PC(glm::vec3(2, -1, -4), glm::vec4(0, 1, 0, 1)));
-    tigl::addVertex(Vertex::PC(glm::vec3(0, 1, -4), glm::vec4(0, 0, 1, 1)));
+    Environment environment;
 
+    environment.draw();
 
-    tigl::addVertex(Vertex::PC(glm::vec3(-10, -1, -10), glm::vec4(1, 1, 1, 1)));
-    tigl::addVertex(Vertex::PC(glm::vec3(-10, -1, 10), glm::vec4(1, 1, 1, 1)));
-    tigl::addVertex(Vertex::PC(glm::vec3(10, -1, 10), glm::vec4(1, 1, 1, 1)));
-
-    tigl::addVertex(Vertex::PC(glm::vec3(-10, -1, -10), glm::vec4(1, 1, 1, 1)));
-    tigl::addVertex(Vertex::PC(glm::vec3(10, -1, -10), glm::vec4(1, 1, 1, 1)));
-    tigl::addVertex(Vertex::PC(glm::vec3(10, -1, 10), glm::vec4(1, 1, 1, 1)));
-
-    tigl::end();
-   
+    cube1.draw();
+    cube2.draw();
+    cube3.draw();
+    cube4.draw();
+    cube5.draw();
 }
+
+void keyCallBack(GLFWwindow* window, int key, int scancode, int action, int mods)
+{
+    if (key == GLFW_KEY_ESCAPE)
+    {
+        glfwSetWindowShouldClose(window, true);
+    }
+    else if (key == GLFW_KEY_SPACE) 
+    {
+        std::cout << "SPACE DETECTED" << "\n";
+    }
+}
+
+
