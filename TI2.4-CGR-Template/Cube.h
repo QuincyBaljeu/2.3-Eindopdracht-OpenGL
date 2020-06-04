@@ -1,6 +1,8 @@
 #pragma once
 #include "tigl.h"
 #include <glm/gtc/matrix_transform.hpp>
+#include <iostream> 
+#include <fstream> 
 
 using tigl::Vertex;
 
@@ -13,7 +15,10 @@ public:
 	void update(double&);
 	void draw();
 	void toggleMovement();
-	void setToMove(bool);
+	void setToMove(bool&);
+	float getX();
+	float getY();
+	float getZ();
 private:
 	float x, y, z;
 	bool toMove;

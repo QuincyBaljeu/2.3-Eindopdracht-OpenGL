@@ -3,6 +3,7 @@
 #include "FpsCam.h"
 #include "Environment.h"
 #include "Cube.h"
+#include "FileIO.h"
 
 //lib files
 #include <GL/glew.h>
@@ -22,11 +23,14 @@ void init();
 void update();
 void draw();
 void keyCallBack(GLFWwindow*, int, int, int, int);
+void insertCubesIntoVector();
 
 //Attributes
 GLFWwindow* window;
 double lastFrameTime;
 FpsCam* camera;
+FileIO fileio;
+std::vector<Cube> cubes;
 
 //Cubes
 Cube cube1(0, -1, 0);
@@ -69,7 +73,11 @@ void init()
 {
     glfwSetKeyCallback(window, keyCallBack);
     camera = new FpsCam(window);
-    cube1.setToMove(true);
+
+    bool cube1State = true;
+    cube1.setToMove(cube1State);
+    insertCubesIntoVector();
+   
 }
 
 void update()
@@ -124,6 +132,15 @@ void keyCallBack(GLFWwindow* window, int key, int scancode, int action, int mods
     {
         cube2.toggleMovement();
     }
+}
+
+void insertCubesIntoVector()
+{
+    cubes.push_back(cube1);
+    cubes.push_back(cube2);
+    cubes.push_back(cube3);
+    cubes.push_back(cube4);
+    cubes.push_back(cube5);
 }
 
 

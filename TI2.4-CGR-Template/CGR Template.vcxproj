@@ -157,6 +157,7 @@
   <ItemGroup>
     <ClCompile Include="Cube.cpp" />
     <ClCompile Include="Environment.cpp" />
+    <ClCompile Include="FileIO.cpp" />
     <ClCompile Include="FpsCam.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="tigl.cpp" />
@@ -164,6 +165,7 @@
   <ItemGroup>
     <ClInclude Include="Cube.h" />
     <ClInclude Include="Environment.h" />
+    <ClInclude Include="FileIO.h" />
     <ClInclude Include="FpsCam.h" />
     <ClInclude Include="stb_image.h" />
     <ClInclude Include="tigl.h" />

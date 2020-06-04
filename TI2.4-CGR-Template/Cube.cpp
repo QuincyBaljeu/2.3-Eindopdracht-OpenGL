@@ -42,9 +42,24 @@ void Cube::toggleMovement()
     std::cout << toMove << "\n";
 }
 
-void Cube::setToMove(bool toggle) 
+void Cube::setToMove(bool &toggle) 
 {
     toMove = toggle;
+}
+
+float Cube::getX()
+{
+    return this->x;
+}
+
+float Cube::getY()
+{
+    return this->y;
+}
+
+float Cube::getZ()
+{
+    return this->z;
 }
 
 void Cube::drawCube() 

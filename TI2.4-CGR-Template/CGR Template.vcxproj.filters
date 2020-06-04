@@ -19,6 +19,9 @@
     <Filter Include="Source Files\Modelling">
       <UniqueIdentifier>{cb7a4a21-4671-4a1d-8ecf-b26dc8b84d07}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\FileIO">
+      <UniqueIdentifier>{16a686f1-e65b-4b73-9c66-ad585ae00127}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="tigl.cpp">
@@ -36,6 +39,9 @@
     <ClCompile Include="Environment.cpp">
       <Filter>Source Files\Modelling</Filter>
     </ClCompile>
+    <ClCompile Include="FileIO.cpp">
+      <Filter>Source Files\FileIO</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="tigl.h">
@@ -51,6 +57,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Environment.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FileIO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
