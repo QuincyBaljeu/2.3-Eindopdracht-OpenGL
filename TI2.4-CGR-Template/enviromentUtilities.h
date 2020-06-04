@@ -14,7 +14,7 @@ public:
 	~enviromentUtilities();
 
 	GLuint textureId = -1;
-
+	
 	void loadFloor();
 };
 
