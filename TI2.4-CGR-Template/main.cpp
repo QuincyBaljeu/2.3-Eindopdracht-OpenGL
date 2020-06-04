@@ -3,6 +3,8 @@
 #include "FpsCam.h"
 #include "enviromentUtilities.h"
 
+
+
 //lib files
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
@@ -23,6 +25,7 @@ void draw();
 //Attributes
 GLFWwindow* window;
 double lastFrameTime;
+FpsCam* camera;
 
 int main(void)
 {
@@ -54,8 +57,6 @@ int main(void)
     return 0;
 }
 
-FpsCam* camera;
-
 void init()
 {
     glfwSetKeyCallback(window, [](GLFWwindow* window, int key, int scancode, int action, int mods)
@@ -63,6 +64,7 @@ void init()
         if (key == GLFW_KEY_ESCAPE)
             glfwSetWindowShouldClose(window, true);
     });
+
     camera = new FpsCam(window);
 }
 
@@ -88,14 +90,16 @@ void draw()
     tigl::shader->setViewMatrix(camera->getMatrix());
     tigl::shader->setModelMatrix(glm::mat4(1.0f));
 
-    tigl::shader->enableColor(true);
+    tigl::shader->enableColor(false);
+    tigl::shader->enableTexture(true);
 
+
+        
     glEnable(GL_DEPTH_TEST);
     
     //drawing
 
     tigl::begin(GL_TRIANGLES);
- 
     tigl::addVertex(Vertex::PC(glm::vec3(-2, -1, -4), glm::vec4(1, 0, 0, 1)));
     tigl::addVertex(Vertex::PC(glm::vec3(2, -1, -4), glm::vec4(0, 1, 0, 1)));
     tigl::addVertex(Vertex::PC(glm::vec3(0, 1, -4), glm::vec4(0, 0, 1, 1)));
