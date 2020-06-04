@@ -1,22 +1,24 @@
 #pragma once
 #include "tigl.h"
 #include "stb_image.h"
+#include "Cube.h"
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
-
 using tigl::Vertex;
 
-class enviroment
+class Environment
 {
 public:
-	enviroment();
-	~enviroment();
+	Environment();
+	~Environment();
 
 	GLuint textureId = -1;
 	
-	void loadFloor();
-	void update(GLFWwindow*);
+	void update();
 	void draw();
+	void loadFloor();
+
+private:
 };
 

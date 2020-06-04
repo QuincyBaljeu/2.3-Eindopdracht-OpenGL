@@ -1,7 +1,7 @@
 //header files
 #include "tigl.h"
 #include "FpsCam.h"
-#include "enviroment.h"
+#include "Environment.h"
 #include "Cube.h"
 
 //lib files
@@ -72,7 +72,8 @@ void update()
     double currentTime = glfwGetTime();
     double deltaTime = currentTime - lastFrameTime;
     lastFrameTime = currentTime;
-    camera->update(window);
+    
+    camera->update(window); 
 }
 
 void draw()
@@ -91,11 +92,13 @@ void draw()
 
     tigl::shader->enableColor(false);
     tigl::shader->enableTexture(true);
-    
+
     glEnable(GL_DEPTH_TEST);
-    
-    //drawing
-    enviroment evUtil;
-    
-    evUtil.loadFloor();
+
+    Environment environment;
+
+    environment.draw();
+   
 }
+
+

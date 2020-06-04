@@ -13,11 +13,11 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Source Files\Enviroment">
-      <UniqueIdentifier>{cb7a4a21-4671-4a1d-8ecf-b26dc8b84d07}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Interaction">
       <UniqueIdentifier>{b01268ce-7eba-40ba-adc6-33c7dd78ba12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Modelling">
+      <UniqueIdentifier>{cb7a4a21-4671-4a1d-8ecf-b26dc8b84d07}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -31,10 +31,10 @@
       <Filter>Source Files\Interaction</Filter>
     </ClCompile>
     <ClCompile Include="Cube.cpp">
-      <Filter>Source Files\Enviroment</Filter>
+      <Filter>Source Files\Modelling</Filter>
     </ClCompile>
-    <ClCompile Include="enviroment.cpp">
-      <Filter>Source Files\Enviroment</Filter>
+    <ClCompile Include="Environment.cpp">
+      <Filter>Source Files\Modelling</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -50,7 +50,7 @@
     <ClInclude Include="Cube.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="enviroment.h">
+    <ClInclude Include="Environment.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

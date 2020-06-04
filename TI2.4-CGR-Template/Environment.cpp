@@ -1,9 +1,11 @@
-#include "enviroment.h"
+#include "Environment.h"
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 #include "Cube.h"
 
-enviroment::enviroment()
+Cube cube1(0,0,0);
+
+Environment::Environment()
 {
     glEnable(GL_DEPTH_TEST);
 
@@ -23,11 +25,23 @@ enviroment::enviroment()
     stbi_image_free(data);
 }
 
-enviroment::~enviroment()
+Environment::~Environment()
 {
 }
 
-void enviroment::loadFloor()
+void Environment::update()
+{
+}
+
+
+void Environment::draw()
+{
+    loadFloor();
+    cube1.draw();
+	update();
+}
+
+void Environment::loadFloor()
 {
     float textureScale = 1 / 4.0f;
 
@@ -37,15 +51,6 @@ void enviroment::loadFloor()
     tigl::addVertex(Vertex::PT(glm::vec3(10, -1, 10), glm::vec2(textureScale, -textureScale)));
     tigl::addVertex(Vertex::PT(glm::vec3(10, -1, -10), glm::vec2(textureScale, 0)));
     tigl::end();
-
-    Cube cube1(0, 0, 0); 
-    cube1.draw();
 }
 
-void enviroment::update(GLFWwindow*)
-{
-}
 
-void enviroment::draw()
-{
-}
