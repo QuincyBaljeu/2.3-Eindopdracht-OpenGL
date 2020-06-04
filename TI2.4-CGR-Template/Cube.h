@@ -10,12 +10,12 @@ public:
 	Cube(int,int,int);
 	~Cube();
 
-	void update();
+	void update(double&);
 	void draw();
 
 private:
 	void drawCube();
-	float angle;
+	float angle = 0.0f;
 	glm::mat4 model;
 };
 

@@ -3,8 +3,6 @@
 #include "stb_image.h"
 #include "Cube.h"
 
-Cube cube1(0,0,0);
-
 Environment::Environment()
 {
     glEnable(GL_DEPTH_TEST);
@@ -36,9 +34,7 @@ void Environment::update()
 
 void Environment::draw()
 {
-    loadFloor();
-    cube1.draw();
-	update();
+	loadFloor();
 }
 
 void Environment::loadFloor()

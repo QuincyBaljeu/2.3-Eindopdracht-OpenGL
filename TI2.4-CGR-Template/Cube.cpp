@@ -1,19 +1,19 @@
 #include "Cube.h"
+#include <iostream>
 
 Cube::Cube(int x, int y, int z)
 {
     model = glm::mat4(1.0f);
     model = glm::translate(model, glm::vec3(x, y, z));
-    angle = 0;
 }
 
 Cube::~Cube()
 {
 }
 
-void Cube::update()
+void Cube::update(double &deltaTime)
 {
-    angle += 0.1f;
+    this->angle += 0.01f * deltaTime;
 }
 
 void Cube::draw()
