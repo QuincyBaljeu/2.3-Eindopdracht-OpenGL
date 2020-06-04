@@ -69,6 +69,7 @@ void init()
 {
     glfwSetKeyCallback(window, keyCallBack);
     camera = new FpsCam(window);
+    cube1.setToMove(true);
 }
 
 void update()
@@ -80,6 +81,7 @@ void update()
     camera->update(window); 
     
     cube1.update(deltaTime);
+    cube2.update(deltaTime);
 }
 
 void draw()
@@ -118,9 +120,9 @@ void keyCallBack(GLFWwindow* window, int key, int scancode, int action, int mods
     {
         glfwSetWindowShouldClose(window, true);
     }
-    else if (key == GLFW_KEY_SPACE) 
+    else if (key == GLFW_KEY_SPACE && action == GLFW_PRESS) 
     {
-        std::cout << "SPACE DETECTED" << "\n";
+        cube2.toggleMovement();
     }
 }
 

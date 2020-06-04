@@ -35,6 +35,7 @@ void Environment::update()
 void Environment::draw()
 {
 	loadFloor();
+	loadWalls();
 }
 
 void Environment::loadFloor()
@@ -47,6 +48,47 @@ void Environment::loadFloor()
     tigl::addVertex(Vertex::PT(glm::vec3(10, -1, 10), glm::vec2(textureScale, -textureScale)));
     tigl::addVertex(Vertex::PT(glm::vec3(10, -1, -10), glm::vec2(textureScale, 0)));
     tigl::end();
+}
+
+void Environment::loadWalls()
+{
+	float textureScale = 1 / 4.0f;
+
+    //front
+	tigl::begin(GL_QUADS);
+	tigl::addVertex(Vertex::PT(glm::vec3(-10, -1, -10), glm::vec2(0, 0)));
+	tigl::addVertex(Vertex::PT(glm::vec3(10, -1, -10), glm::vec2(0, 0)));
+	tigl::addVertex(Vertex::PT(glm::vec3(10, 10, -10), glm::vec2(0, 0)));
+	tigl::addVertex(Vertex::PT(glm::vec3(-10, 10, -10), glm::vec2(0, 0)));
+	tigl::end();
+
+    //back
+    tigl::begin(GL_QUADS);
+	tigl::addVertex(Vertex::PT(glm::vec3(-10, -1, 10), glm::vec2(0, 0)));
+	tigl::addVertex(Vertex::PT(glm::vec3(10, -1, 10), glm::vec2(0, 0)));
+	tigl::addVertex(Vertex::PT(glm::vec3(10, 10, 10), glm::vec2(0, 0)));
+	tigl::addVertex(Vertex::PT(glm::vec3(-10, 10, 10), glm::vec2(0, 0)));
+	tigl::end();
+
+	//left
+	/*
+	tigl::begin(GL_QUADS);
+	tigl::addVertex(Vertex::PT(glm::vec3(0, -1, -10), glm::vec2(0, 0)));
+	tigl::addVertex(Vertex::PT(glm::vec3(-10, -1, 10), glm::vec2(0, 0)));
+	tigl::addVertex(Vertex::PT(glm::vec3(10, 10, 10), glm::vec2(0, 0)));
+	tigl::addVertex(Vertex::PT(glm::vec3(-10, 10, 10), glm::vec2(0, 0)));
+	tigl::end();
+	*/
+
+	//Right
+		/*
+	tigl::begin(GL_QUADS);
+	tigl::addVertex(Vertex::PT(glm::vec3(0, -1, -10), glm::vec2(0, 0)));
+	tigl::addVertex(Vertex::PT(glm::vec3(-10, -1, 10), glm::vec2(0, 0)));
+	tigl::addVertex(Vertex::PT(glm::vec3(10, 10, 10), glm::vec2(0, 0)));
+	tigl::addVertex(Vertex::PT(glm::vec3(-10, 10, 10), glm::vec2(0, 0)));
+	tigl::end();
+	*/
 }
 
 
