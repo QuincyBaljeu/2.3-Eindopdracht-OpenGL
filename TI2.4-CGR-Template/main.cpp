@@ -8,6 +8,7 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <glm/gtc/matrix_transform.hpp>
+#include <iostream>;
 
 //misc.
 using tigl::Vertex;
@@ -20,12 +21,14 @@ using tigl::Vertex;
 void init();
 void update();
 void draw();
+void keyCallBack(GLFWwindow*, int, int, int, int);
 
 //Attributes
 GLFWwindow* window;
 double lastFrameTime;
 FpsCam* camera;
 
+//Cubes
 Cube cube1(0, -1, 0);
 Cube cube2(0, -1, 2);
 Cube cube3(0, -1, 4);
@@ -64,12 +67,7 @@ int main(void)
 
 void init()
 {
-    glfwSetKeyCallback(window, [](GLFWwindow* window, int key, int scancode, int action, int mods)
-    {
-        if (key == GLFW_KEY_ESCAPE)
-            glfwSetWindowShouldClose(window, true);
-    });
-
+    glfwSetKeyCallback(window, keyCallBack);
     camera = new FpsCam(window);
 }
 
@@ -112,6 +110,18 @@ void draw()
     cube3.draw();
     cube4.draw();
     cube5.draw();
+}
+
+void keyCallBack(GLFWwindow* window, int key, int scancode, int action, int mods)
+{
+    if (key == GLFW_KEY_ESCAPE)
+    {
+        glfwSetWindowShouldClose(window, true);
+    }
+    else if (key == GLFW_KEY_SPACE) 
+    {
+        std::cout << "SPACE DETECTED" << "\n";
+    }
 }
 
 

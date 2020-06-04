@@ -14,12 +14,10 @@ Cube::~Cube()
 void Cube::update(double &deltaTime)
 {
     this->angle += 0.01f * deltaTime;
-    std::cout << "updateing" << angle <<"\n";
 }
 
 void Cube::draw()
 {
-    std::cout << "Drawing..." << this->angle << "\n";
     model = glm::rotate(model, angle, glm::vec3(1, 0, 0));
     tigl::shader->setModelMatrix(model);
     drawCube();
