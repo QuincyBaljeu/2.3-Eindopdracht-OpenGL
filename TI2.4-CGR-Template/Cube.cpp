@@ -1,23 +1,25 @@
 #include "Cube.h"
+#include <iostream>
 
 Cube::Cube(int x, int y, int z)
 {
     model = glm::mat4(1.0f);
     model = glm::translate(model, glm::vec3(x, y, z));
-    angle = 0;
 }
 
 Cube::~Cube()
 {
 }
 
-void Cube::update()
+void Cube::update(double &deltaTime)
 {
-    angle += 0.1f;
+    this->angle += 0.01f * deltaTime;
+    std::cout << "updateing" << angle <<"\n";
 }
 
 void Cube::draw()
 {
+    std::cout << "Drawing..." << this->angle << "\n";
     model = glm::rotate(model, angle, glm::vec3(1, 0, 0));
     tigl::shader->setModelMatrix(model);
     drawCube();
