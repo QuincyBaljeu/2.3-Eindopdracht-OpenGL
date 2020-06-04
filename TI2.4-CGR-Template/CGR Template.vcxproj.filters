@@ -30,12 +30,18 @@
     <ClCompile Include="FpsCam.cpp">
       <Filter>Source Files\Interaction</Filter>
     </ClCompile>
+    <ClCompile Include="enviromentUtilities.cpp">
+      <Filter>Source Files\Enviroment</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="tigl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="FpsCam.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="enviromentUtilities.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

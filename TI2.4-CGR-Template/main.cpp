@@ -1,6 +1,7 @@
 //header files
 #include "tigl.h"
 #include "FpsCam.h"
+#include "enviromentUtilities.h"
 
 //lib files
 #include <GL/glew.h>
@@ -94,19 +95,13 @@ void draw()
     //drawing
 
     tigl::begin(GL_TRIANGLES);
+ 
     tigl::addVertex(Vertex::PC(glm::vec3(-2, -1, -4), glm::vec4(1, 0, 0, 1)));
     tigl::addVertex(Vertex::PC(glm::vec3(2, -1, -4), glm::vec4(0, 1, 0, 1)));
     tigl::addVertex(Vertex::PC(glm::vec3(0, 1, -4), glm::vec4(0, 0, 1, 1)));
-
-
-    tigl::addVertex(Vertex::PC(glm::vec3(-10, -1, -10), glm::vec4(1, 1, 1, 1)));
-    tigl::addVertex(Vertex::PC(glm::vec3(-10, -1, 10), glm::vec4(1, 1, 1, 1)));
-    tigl::addVertex(Vertex::PC(glm::vec3(10, -1, 10), glm::vec4(1, 1, 1, 1)));
-
-    tigl::addVertex(Vertex::PC(glm::vec3(-10, -1, -10), glm::vec4(1, 1, 1, 1)));
-    tigl::addVertex(Vertex::PC(glm::vec3(10, -1, -10), glm::vec4(1, 1, 1, 1)));
-    tigl::addVertex(Vertex::PC(glm::vec3(10, -1, 10), glm::vec4(1, 1, 1, 1)));
-
     tigl::end();
-   
+
+    enviromentUtilities evUtil;
+
+    evUtil.loadFloor();
 }

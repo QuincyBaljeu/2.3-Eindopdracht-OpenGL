@@ -37,6 +37,7 @@ void FpsCam::update(GLFWwindow* window)
 	static double lastY = y;
 
 	rotation.x -= (float)(lastY - y) / 100.0f;
+	if(rotation.y < 180)
 	rotation.y -= (float)(lastX - x) / 100.0f;
 
 	lastX = x;
