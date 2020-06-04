@@ -20,18 +20,17 @@ using tigl::Vertex;
 void init();
 void update();
 void draw();
-void initCubes();
 
 //Attributes
 GLFWwindow* window;
 double lastFrameTime;
 FpsCam* camera;
-std::vector<Cube> cubes;
-Cube cube1(0, 0, 0);
-Cube cube2(0, 0, 2);
-Cube cube3(0, 0, 4);
-Cube cube4(0, 0, 6);
-Cube cube5(0, 0, 8);
+
+Cube cube1(0, -1, 0);
+Cube cube2(0, -1, 2);
+Cube cube3(0, -1, 4);
+Cube cube4(0, -1, 6);
+Cube cube5(0, -1, 8);
 
 int main(void)
 {
@@ -72,7 +71,6 @@ void init()
     });
 
     camera = new FpsCam(window);
-    initCubes();
 }
 
 void update()
@@ -110,17 +108,10 @@ void draw()
     environment.draw();
 
     cube1.draw();
- 
-   
-}
-
-void initCubes()
-{
-    cubes.push_back(cube1);
-    cubes.push_back(cube2);
-    cubes.push_back(cube3);
-    cubes.push_back(cube4);
-    cubes.push_back(cube5);
+    cube2.draw();
+    cube3.draw();
+    cube4.draw();
+    cube5.draw();
 }
 
 
