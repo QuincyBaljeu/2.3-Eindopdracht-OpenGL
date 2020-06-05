@@ -77,6 +77,9 @@ void init()
     bool cube1State = true;
     cube1.setToMove(cube1State);
     insertCubesIntoVector();
+
+    const std::string filePath = "test.txt";
+    fileio.writeCubesToTxt(cubes, filePath);
    
 }
 

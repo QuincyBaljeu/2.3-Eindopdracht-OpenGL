@@ -1,22 +1,23 @@
 #include "FileIO.h"
 
-int FileIO::writeCubesToTxt(std::vector<Cube> &cubes)
+int FileIO::writeCubesToTxt(std::vector<Cube> &cubes, const std::string& filename)
 {
-	std::ofstream objectFile;
+	std::ofstream output;
 
-	objectFile.open("Input.txt", std::ios::app);
+	output.open(filename);
 
 	for (Cube c : cubes)
 	{
-		Cube cubeToWrite(c.getX(), c.getY(), c.getZ());
-
-		objectFile.write((char*)&cubeToWrite, sizeof(cubeToWrite));
+		output << "X: " << c.getX() << " Y: " << c.getY() << " Z: " << c.getZ();
 	}
+
+	copy(cubes.begin(), cubes.end(), std::ostream_iterator<int>(output, " "));
+	std::cout << "File created" << "\n";
 
 	return 0;
 }
 
-std::vector<Cube> FileIO::readCubesFromTxt(std::string& path)
+std::vector<Cube> FileIO::readCubesFromTxt(const std::string& path)
 {
 
 	std::vector<Cube> cubes;
