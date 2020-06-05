@@ -18,6 +18,7 @@ public:
 	void update();
 	void draw();
 	void loadFloor();
+	void loadWalls();
 
 private:
 };
