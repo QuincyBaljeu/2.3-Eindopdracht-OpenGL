@@ -35,6 +35,7 @@ void Environment::update()
 void Environment::draw()
 {
 	loadFloor();
+	loadCeiling();
 	loadWalls();
 }
 
@@ -48,6 +49,22 @@ void Environment::loadFloor()
     tigl::addVertex(Vertex::PT(glm::vec3(10, -1, 10), glm::vec2(textureScale, -textureScale)));
     tigl::addVertex(Vertex::PT(glm::vec3(10, -1, -10), glm::vec2(textureScale, 0)));
     tigl::end();
+}
+
+void Environment::loadCeiling()
+{
+	float textureScale = 1 / 4.0f;
+
+	glm::vec2 texPos(0, 0);
+	texPos.x = textureScale * 3;
+	texPos.y = textureScale;
+
+	tigl::begin(GL_QUADS);
+	tigl::addVertex(Vertex::PT(glm::vec3(-10, 10, -10), texPos + glm::vec2(0, 0)));
+	tigl::addVertex(Vertex::PT(glm::vec3(-10, 10, 10), texPos + glm::vec2(0, -textureScale)));
+	tigl::addVertex(Vertex::PT(glm::vec3(10, 10, 10), texPos + glm::vec2(textureScale, -textureScale)));
+	tigl::addVertex(Vertex::PT(glm::vec3(10, 10, -10), texPos + glm::vec2(textureScale, 0)));
+	tigl::end();
 }
 
 void Environment::loadWalls()

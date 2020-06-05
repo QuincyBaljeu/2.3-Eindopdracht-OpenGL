@@ -3,6 +3,7 @@
 #include "FpsCam.h"
 #include "Environment.h"
 #include "Cube.h"
+#include "Pyramid.h"
 #include "FileIO.h"
 #include "ObjModel.h"
 
@@ -39,7 +40,7 @@ Cube cube1(5, -1, 5);
 Cube cube2(5, -1, -5);
 Cube cube3(0, -1, 4);
 //Cube cube4(0, -1, 6);
-//Cube cube5(0, -1, 8);
+Pyramid pyramid(-5, -1, 5);
 
 int main(void)
 {
@@ -75,9 +76,6 @@ void init()
 {
     glfwSetKeyCallback(window, keyCallBack);
     camera = new FpsCam(window);
-
-    bool cube1State = true;
-    cube1.setToMove(cube1State);
 
     insertCubesIntoVector();
 
@@ -118,6 +116,9 @@ void draw()
 
     glEnable(GL_DEPTH_TEST);
 
+    bool cube1Movement = true;
+    cube1.setToMove(cube1Movement);
+
     Environment environment;
 
     flowerModel->draw();
@@ -126,6 +127,7 @@ void draw()
 
     cube1.draw();
     cube2.draw();
+    pyramid.draw();
     //cube3.draw();
     //cube4.draw();
     //cube5.draw();
