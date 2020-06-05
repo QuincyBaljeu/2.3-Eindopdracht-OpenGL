@@ -161,6 +161,7 @@
     <ClCompile Include="FpsCam.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ObjModel.cpp" />
+    <ClCompile Include="Pyramid.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="tigl.cpp" />
   </ItemGroup>
@@ -170,6 +171,7 @@
     <ClInclude Include="FileIO.h" />
     <ClInclude Include="FpsCam.h" />
     <ClInclude Include="ObjModel.h" />
+    <ClInclude Include="Pyramid.h" />
     <ClInclude Include="stb_image.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="tigl.h" />
