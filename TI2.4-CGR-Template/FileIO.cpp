@@ -11,7 +11,7 @@ int FileIO::writeCubesToTxt(std::vector<Cube> &cubes, const std::string& filenam
 		output << "X: " << c.getX() << " Y: " << c.getY() << " Z: " << c.getZ();
 	}
 
-	copy(cubes.begin(), cubes.end(), std::ostream_iterator<int>(output, " "));
+	//copy(cubes.begin(), cubes.end(), std::ostream_iterator<int>(output, " "));
 	std::cout << "File created" << "\n";
 
 	return 0;
