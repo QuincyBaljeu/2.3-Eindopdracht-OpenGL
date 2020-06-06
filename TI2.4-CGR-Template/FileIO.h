@@ -6,11 +6,12 @@
 
 #include "Cube.h"
 
+
 class FileIO
 {
 public:
 	void writeCubesToTxt(std::vector<Cube>&, const std::string&);
-	std::vector<Cube> readCubesFromTxt(const std::string&);
+	void readCubesFromTxt(const std::string&);
 private:
 
 };

@@ -92,6 +92,8 @@ void init()
     v.push_back(cube2);
 
     fileio.writeCubesToTxt(v, "test2.txt");
+
+    fileio.readCubesFromTxt("test2.txt");
 }
 
 void update()

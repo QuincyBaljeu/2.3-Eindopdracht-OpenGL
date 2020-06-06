@@ -22,6 +22,15 @@
     <Filter Include="Source Files\FileIO">
       <UniqueIdentifier>{16a686f1-e65b-4b73-9c66-ad585ae00127}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\FileIO">
+      <UniqueIdentifier>{3eba7fe4-5dcc-4015-aa68-11de90ccc7ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Interaction">
+      <UniqueIdentifier>{0adf99b0-51a2-4a37-93d1-2408a99b6495}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Modelling">
+      <UniqueIdentifier>{a5f311c8-8ba8-471f-98cf-1fff54d23d4b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="tigl.cpp">
@@ -56,29 +65,29 @@
     <ClInclude Include="tigl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FpsCam.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="stb_image.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="FileIO.h">
+      <Filter>Header Files\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="FpsCam.h">
+      <Filter>Header Files\Interaction</Filter>
+    </ClInclude>
     <ClInclude Include="Cube.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Modelling</Filter>
     </ClInclude>
     <ClInclude Include="Environment.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FileIO.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Modelling</Filter>
     </ClInclude>
     <ClInclude Include="ObjModel.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Texture.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Modelling</Filter>
     </ClInclude>
     <ClInclude Include="Pyramid.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Modelling</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Header Files\Modelling</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

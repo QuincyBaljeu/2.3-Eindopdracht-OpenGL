@@ -18,10 +18,21 @@ void FileIO::writeCubesToTxt(std::vector<Cube> &cubes, const std::string& filena
 	output.close();
 }
 
-std::vector<Cube> FileIO::readCubesFromTxt(const std::string& path)
+void FileIO::readCubesFromTxt(const std::string& path)
 {
+	std::string text;
 
-	std::vector<Cube> cubes;
+	std::ifstream input(path);
+	if (input.fail()) 
+	{
+		std::cout << "Failed to open file" << "\n";
+		return;
+	}
 
-	return cubes;
+	while (input >> text)
+	{
+		std::cout << text << "\n";
+	}
+
+	return;
 }
