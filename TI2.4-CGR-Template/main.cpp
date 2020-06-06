@@ -32,7 +32,6 @@ GLFWwindow* window;
 double lastFrameTime;
 FpsCam* camera;
 FileIO fileio;
-std::vector<Cube> cubes;
 
 //Cubes
 Cube cube1(5, -1, 5);
@@ -87,10 +86,6 @@ void init()
     
     flowerModel = new ObjModel("models/bloemetje/PrimroseP.obj", 0, -0.75, 0);  
 
-    std::vector<Cube> v;
-    v.push_back(cube1);
-    v.push_back(cube2);
-
     fileio.writeCubesToTxt(v, "test2.txt");
 
     fileio.readCubesFromTxt("test2.txt");
@@ -125,9 +120,8 @@ void draw()
     tigl::shader->setViewMatrix(camera->getMatrix());
     tigl::shader->setModelMatrix(glm::mat4(1.0f));
 
+    //Fog settings
     tigl::shader->enableFog(true);
-    //tigl::shader->setFogColor(glm:vec3(1, 1, 1));
-
     tigl::shader->setFogLinear(4,10);
 
     //lighting settings
@@ -145,6 +139,7 @@ void draw()
     tigl::shader->enableTexture(true);
     glEnable(GL_DEPTH_TEST);
 
+    //Environment
     Environment environment;
     environment.draw();
 
