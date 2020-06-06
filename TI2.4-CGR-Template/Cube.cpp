@@ -35,13 +35,13 @@ void Cube::draw()
 {
     model = glm::rotate(model, angle, glm::vec3(0, 1, 0));
     tigl::shader->setModelMatrix(model);
+    tigl::shader->enableColor(true);
     drawCube();
 }
 
 void Cube::toggleMovement() 
 {
-    toMove = !toMove;
-    std::cout << toMove << "\n";
+    this->toMove = !toMove;
 }
 
 void Cube::setToMove(bool& toMove)

@@ -38,9 +38,10 @@ ObjModel* flowerModel;
 //Cubes
 Cube cube1(5, -1, 5);
 Cube cube2(5, -1, -5);
-Cube cube3(0, -1, 4);
-//Cube cube4(0, -1, 6);
-Pyramid pyramid(-5, -1, 5);
+
+//Pyramids
+Pyramid pyramid1(-5, -1, 5);
+Pyramid pyramid2(-5, - 1, -5);
 
 int main(void)
 {
@@ -95,6 +96,9 @@ void update()
     
     cube1.update(deltaTime);
     cube2.update(deltaTime);
+
+    pyramid1.update(deltaTime);
+    pyramid2.update(deltaTime);
 }
 
 void draw()
@@ -111,29 +115,28 @@ void draw()
     tigl::shader->setViewMatrix(camera->getMatrix());
     tigl::shader->setModelMatrix(glm::mat4(1.0f));
 
-    tigl::shader->enableColor(true);
+    //tigl::shader->enableColor(true);
     tigl::shader->enableTexture(true);
-
     glEnable(GL_DEPTH_TEST);
 
-    bool cube1Movement = true;
-    cube1.setToMove(cube1Movement);
-
     Environment environment;
-
-    flowerModel->draw();
-
     environment.draw();
 
+    //Cubes
+    bool cube1Movement = true;
+    cube1.setToMove(cube1Movement);
     cube1.draw();
+
     cube2.draw();
-    pyramid.draw();
-    //cube3.draw();
-    //cube4.draw();
-    //cube5.draw();
-
-
     
+    //Pyramids
+    bool pyramid1Movement = true;
+    pyramid1.setToMove(pyramid1Movement);
+    pyramid1.draw();
+    pyramid2.draw();
+ 
+    //3D model
+    //flowerModel->draw();
 }
 
 void keyCallBack(GLFWwindow* window, int key, int scancode, int action, int mods)
@@ -145,6 +148,10 @@ void keyCallBack(GLFWwindow* window, int key, int scancode, int action, int mods
     else if (key == GLFW_KEY_SPACE && action == GLFW_PRESS) 
     {
         cube2.toggleMovement();
+    }
+    else if (key == GLFW_KEY_0 && action == GLFW_PRESS) 
+    {
+        pyramid2.toggleMovement();
     }
 }
 

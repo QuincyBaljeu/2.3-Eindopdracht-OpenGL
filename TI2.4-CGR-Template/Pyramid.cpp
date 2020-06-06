@@ -1,6 +1,6 @@
 #include "Pyramid.h"
 
-Pyramid::Pyramid(float, float, float)
+Pyramid::Pyramid(float x, float y, float z)
 {
 	toMove = false;
 
@@ -34,42 +34,53 @@ void Pyramid::draw()
 {
     model = glm::rotate(model, angle, glm::vec3(0, 1, 0));
     tigl::shader->setModelMatrix(model);
+	tigl::shader->enableColor(true);
     drawPyramid();
+}
+
+void Pyramid::toggleMovement()
+{
+	this->toMove = !toMove;
+}
+
+void Pyramid::setToMove(bool& toMove)
+{
+	this->toMove = toMove;
+}
+
+float Pyramid::getX()
+{
+	return this->x;
+}
+
+float Pyramid::getY()
+{
+	return this->y;
+}
+
+float Pyramid::getZ()
+{
+	return this->z;
 }
 
 void Pyramid::drawPyramid()
 {
-    glBegin(GL_TRIANGLES);           // Begin drawing the pyramid with 4 triangles
-      // Front
-    glColor3f(1.0f, 0.0f, 0.0f);     // Red
-    glVertex3f(0.0f, 1.0f, 0.0f);
-    glColor3f(0.0f, 1.0f, 0.0f);     // Green
-    glVertex3f(-1.0f, -1.0f, 1.0f);
-    glColor3f(0.0f, 0.0f, 1.0f);     // Blue
-    glVertex3f(1.0f, -1.0f, 1.0f);
+    tigl::begin(GL_TRIANGLES);          
+	tigl::addVertex(Vertex::PC(glm::vec3(-1, 0, -1), glm::vec4(1, 0, 0, 1)));
+	tigl::addVertex(Vertex::PC(glm::vec3(1, 0, -1), glm::vec4(0, 1, 0, 1)));
+	tigl::addVertex(Vertex::PC(glm::vec3(0, 1, 0), glm::vec4(0, 0, 1, 1)));
 
-    // Right
-    glColor3f(1.0f, 0.0f, 0.0f);     // Red
-    glVertex3f(0.0f, 1.0f, 0.0f);
-    glColor3f(0.0f, 0.0f, 1.0f);     // Blue
-    glVertex3f(1.0f, -1.0f, 1.0f);
-    glColor3f(0.0f, 1.0f, 0.0f);     // Green
-    glVertex3f(1.0f, -1.0f, -1.0f);
+	tigl::addVertex(Vertex::PC(glm::vec3(-1, 0, -1), glm::vec4(1, 0, 0, 1)));
+	tigl::addVertex(Vertex::PC(glm::vec3(-1, 0, 1), glm::vec4(0, 1, 0, 1)));
+	tigl::addVertex(Vertex::PC(glm::vec3(0, 1, 0), glm::vec4(0, 0, 1, 1)));
 
-    // Back
-    glColor3f(1.0f, 0.0f, 0.0f);     // Red
-    glVertex3f(0.0f, 1.0f, 0.0f);
-    glColor3f(0.0f, 1.0f, 0.0f);     // Green
-    glVertex3f(1.0f, -1.0f, -1.0f);
-    glColor3f(0.0f, 0.0f, 1.0f);     // Blue
-    glVertex3f(-1.0f, -1.0f, -1.0f);
+	tigl::addVertex(Vertex::PC(glm::vec3(1, 0, -1), glm::vec4(1, 0, 0, 1)));
+	tigl::addVertex(Vertex::PC(glm::vec3(1, 0, 1), glm::vec4(0, 1, 0, 1)));
+	tigl::addVertex(Vertex::PC(glm::vec3(0, 1, 0), glm::vec4(0, 0, 1, 1)));
 
-    // Left
-    glColor3f(1.0f, 0.0f, 0.0f);       // Red
-    glVertex3f(0.0f, 1.0f, 0.0f);
-    glColor3f(0.0f, 0.0f, 1.0f);       // Blue
-    glVertex3f(-1.0f, -1.0f, -1.0f);
-    glColor3f(0.0f, 1.0f, 0.0f);       // Green
-    glVertex3f(-1.0f, -1.0f, 1.0f);
-    glEnd();
+	tigl::addVertex(Vertex::PC(glm::vec3(1, 0, 1), glm::vec4(1, 0, 0, 1)));
+	tigl::addVertex(Vertex::PC(glm::vec3(-1, 0, 1), glm::vec4(0, 1, 0, 1)));
+	tigl::addVertex(Vertex::PC(glm::vec3(0, 1, 0), glm::vec4(0, 0, 1, 1)));
+
+	tigl::end();
 }
