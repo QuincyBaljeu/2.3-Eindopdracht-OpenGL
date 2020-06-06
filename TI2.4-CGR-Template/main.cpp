@@ -125,6 +125,22 @@ void draw()
     tigl::shader->setViewMatrix(camera->getMatrix());
     tigl::shader->setModelMatrix(glm::mat4(1.0f));
 
+    tigl::shader->enableFog(true);
+    //tigl::shader->setFogColor(glm:vec3(1, 1, 1));
+
+    tigl::shader->setFogLinear(4,10);
+
+    //lighting settings
+    tigl::shader->enableLighting(true);
+    tigl::shader->setLightCount(1);
+
+    tigl::shader->setLightDirectional(0, false);
+    tigl::shader->setLightPosition(0, glm::vec3(0, 3, 0));
+    tigl::shader->setLightAmbient(0, glm::vec3(0.1f, 0.1f, 0.15f));
+    tigl::shader->setLightDiffuse(0, glm::vec3(0.8f, 0.8f, 0.8f));
+    tigl::shader->setLightSpecular(0, glm::vec3(0, 0, 0));
+    tigl::shader->setShinyness(32.0f);
+
     //tigl::shader->enableColor(true);
     tigl::shader->enableTexture(true);
     glEnable(GL_DEPTH_TEST);
