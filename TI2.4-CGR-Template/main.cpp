@@ -86,6 +86,13 @@ void init()
     //fileio.writeCubesToTxt(cubes, filePath);
     
     flowerModel = new ObjModel("models/bloemetje/PrimroseP.obj", 0, -0.75, 0);  
+
+    std::vector<int> v;
+    for (int i = 1; i < 30; i += 2) {
+        v.push_back(i);
+    }
+
+    fileio.writeCubesToTxt(v, "test2.txt");
 }
 
 void update()

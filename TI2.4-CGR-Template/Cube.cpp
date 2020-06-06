@@ -23,7 +23,7 @@ void Cube::update(double &deltaTime)
 {
     if (toMove) 
     {
-        this->angle += 0.01f * deltaTime;
+        this->angle = 2.0f * deltaTime;
     }
     else
     {
