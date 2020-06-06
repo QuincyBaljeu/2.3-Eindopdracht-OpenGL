@@ -9,7 +9,7 @@
 class FileIO
 {
 public:
-	void writeCubesToTxt(std::vector<int>&, const std::string&);
+	void writeCubesToTxt(std::vector<Cube>&, const std::string&);
 	std::vector<Cube> readCubesFromTxt(const std::string&);
 private:
 

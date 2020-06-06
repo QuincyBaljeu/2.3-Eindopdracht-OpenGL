@@ -1,15 +1,15 @@
 #include "FileIO.h"
 
-void FileIO::writeCubesToTxt(std::vector<int> &cubes, const std::string& filename)
+void FileIO::writeCubesToTxt(std::vector<Cube> &cubes, const std::string& filename)
 {
 	std::ofstream output;
 
 	output.open(filename);
 
-	for (auto d : cubes)
+	for (auto c : cubes)
 	{
-		output << d << '\n';
-		//output << "X: " << c.getX() << " Y: " << c.getY() << " Z: " << c.getZ();
+		//output << d << '\n';
+		output << "X: " << c.getX() << " Y: " << c.getY() << " Z: " << c.getZ() << "\n";
 	}
 
 	//copy(cubes.begin(), cubes.end(), std::ostream_iterator<int>(output, " "));
