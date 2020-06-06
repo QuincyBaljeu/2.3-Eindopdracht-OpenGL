@@ -33,7 +33,6 @@ double lastFrameTime;
 FpsCam* camera;
 FileIO fileio;
 std::vector<Cube> cubes;
-ObjModel* flowerModel;
 
 //Cubes
 Cube cube1(5, -1, 5);
@@ -42,6 +41,9 @@ Cube cube2(5, -1, -5);
 //Pyramids
 Pyramid pyramid1(-5, -1, 5);
 Pyramid pyramid2(-5, - 1, -5);
+
+//3D model
+ObjModel* flowerModel;
 
 int main(void)
 {
@@ -83,7 +85,7 @@ void init()
     //const std::string filePath = "test.txt";
     //fileio.writeCubesToTxt(cubes, filePath);
     
-    flowerModel = new ObjModel("models/bloemetje/PrimroseP.obj");  
+    flowerModel = new ObjModel("models/bloemetje/PrimroseP.obj", 0, -0.75, 0);  
 }
 
 void update()
@@ -136,7 +138,7 @@ void draw()
     pyramid2.draw();
  
     //3D model
-    //flowerModel->draw();
+    flowerModel->draw();
 }
 
 void keyCallBack(GLFWwindow* window, int key, int scancode, int action, int mods)

@@ -1,5 +1,6 @@
 #pragma once
-
+#include "tigl.h"
+#include <glm/gtc/matrix_transform.hpp>
 #include <GL/glew.h>
 #include <glm/glm.hpp>
 
@@ -14,6 +15,8 @@ class Texture;
 class ObjModel
 {
 private:
+	float x, y, z;
+	glm::mat4 model;
 	class Vertex
 	{
 	public:
@@ -52,7 +55,7 @@ private:
 
 	void loadMaterialFile(const std::string& fileName, const std::string& dirName);
 public:
-	ObjModel(const std::string& filename);
+	ObjModel(const std::string& filename, float, float, float);
 	~ObjModel(void);
 
 	void draw();

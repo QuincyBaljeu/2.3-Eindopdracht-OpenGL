@@ -9,6 +9,11 @@
 
 using tigl::Vertex;
 
+ObjModel::~ObjModel(void)
+{
+}
+
+
 /**
 * Replaces a substring in a string
 */
@@ -80,7 +85,7 @@ static inline std::string cleanLine(std::string line)
 /**
 * Loads an object model
 */
-ObjModel::ObjModel(const std::string& fileName)
+ObjModel::ObjModel(const std::string& fileName, float x, float y, float z)
 {
 	std::cout << "Loading " << fileName << std::endl;
 	std::string dirName = fileName;
@@ -90,6 +95,12 @@ ObjModel::ObjModel(const std::string& fileName)
 		dirName = dirName.substr(0, dirName.rfind("\\"));
 	if (fileName == dirName)
 		dirName = "";
+
+	this->x = x;
+	this->y = y;
+	this->z = z;
+	model = glm::mat4(1.0f);
+	model = glm::translate(model, glm::vec3(x, y, z));
 
 
 	std::ifstream pFile(fileName.c_str());
@@ -178,15 +189,11 @@ ObjModel::ObjModel(const std::string& fileName)
 }
 
 
-ObjModel::~ObjModel(void)
-{
-}
-
-
-
 
 void ObjModel::draw()
 {
+	tigl::shader->setModelMatrix(model);
+	tigl::shader->enableColor(false);
 	for (auto group : this->groups)
 	{
 		tigl::begin(GL_TRIANGLES);
