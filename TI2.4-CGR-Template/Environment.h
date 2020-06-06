@@ -18,6 +18,8 @@ public:
 	void update();
 	void draw();
 	void loadFloor();
+	void loadCeiling();
+	void loadWalls();
 
 private:
 };

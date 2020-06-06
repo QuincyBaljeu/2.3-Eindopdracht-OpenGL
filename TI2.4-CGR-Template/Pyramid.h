@@ -2,15 +2,14 @@
 #include "tigl.h"
 #include <glm/gtc/matrix_transform.hpp>
 #include <iostream> 
-#include <fstream> 
 
 using tigl::Vertex;
 
-class Cube
+class Pyramid
 {
 public:
-	Cube(float,float,float);
-	~Cube();
+	Pyramid(float, float, float);
+	~Pyramid();
 
 	void update(double&);
 	void draw();
@@ -19,12 +18,13 @@ public:
 	float getX();
 	float getY();
 	float getZ();
+
 private:
 	float x, y, z;
 	bool toMove;
 	float angle;
 	glm::mat4 model;
 
-	void drawCube();
+	void drawPyramid();
 };
 

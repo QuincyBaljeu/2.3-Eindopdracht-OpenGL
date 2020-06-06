@@ -157,15 +157,23 @@
   <ItemGroup>
     <ClCompile Include="Cube.cpp" />
     <ClCompile Include="Environment.cpp" />
+    <ClCompile Include="FileIO.cpp" />
     <ClCompile Include="FpsCam.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="ObjModel.cpp" />
+    <ClCompile Include="Pyramid.cpp" />
+    <ClCompile Include="Texture.cpp" />
     <ClCompile Include="tigl.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cube.h" />
     <ClInclude Include="Environment.h" />
+    <ClInclude Include="FileIO.h" />
     <ClInclude Include="FpsCam.h" />
+    <ClInclude Include="ObjModel.h" />
+    <ClInclude Include="Pyramid.h" />
     <ClInclude Include="stb_image.h" />
+    <ClInclude Include="Texture.h" />
     <ClInclude Include="tigl.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
