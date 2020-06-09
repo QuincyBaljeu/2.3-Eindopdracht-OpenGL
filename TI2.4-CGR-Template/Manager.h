@@ -2,6 +2,8 @@
 #include "Cube.h"
 #include "Pyramid.h"
 #include "ObjModel.h"
+#include <GLFW/glfw3.h>
+
 class Manager
 {
 public:
@@ -9,9 +11,8 @@ public:
 	~Manager();
 
 	void draw();
-	void update(double&);
+	void update();
 
-	void setToMove(int, bool&);
 	void toggleMovement(int);
 };
 

@@ -3,7 +3,7 @@
 
 Cube::Cube(float x, float y, float z)
 {
-    toMove = false;
+    toMove = true;
 
     this->x = x;
     this->y = y;

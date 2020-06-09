@@ -29,7 +29,6 @@ void keyCallBack(GLFWwindow*, int, int, int, int);
 
 //Attributes
 GLFWwindow* window;
-double lastFrameTime;
 FpsCam* camera;
 Manager manager;
 
@@ -86,24 +85,9 @@ void init()
 }
 
 void update()
-{
-
-    double currentTime = glfwGetTime();
-    double deltaTime = currentTime - lastFrameTime;
-    lastFrameTime = currentTime;
-    
+{   
     camera->update(window); 
-    
-    manager.update(deltaTime);
-    
-    /*
-    cube1.update(deltaTime);
-    cube2.update(deltaTime);
-
-    pyramid1.update(deltaTime);
-    pyramid2.update(deltaTime);
-    */
-
+    manager.update();
 }
 
 void draw()
