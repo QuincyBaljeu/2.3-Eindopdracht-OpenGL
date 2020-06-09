@@ -160,8 +160,10 @@
     <ClCompile Include="FileIO.cpp" />
     <ClCompile Include="FpsCam.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Manager.cpp" />
     <ClCompile Include="ObjModel.cpp" />
     <ClCompile Include="Pyramid.cpp" />
+    <ClCompile Include="Shape.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="tigl.cpp" />
   </ItemGroup>
@@ -170,8 +172,10 @@
     <ClInclude Include="Environment.h" />
     <ClInclude Include="FileIO.h" />
     <ClInclude Include="FpsCam.h" />
+    <ClInclude Include="Manager.h" />
     <ClInclude Include="ObjModel.h" />
     <ClInclude Include="Pyramid.h" />
+    <ClInclude Include="Shape.h" />
     <ClInclude Include="stb_image.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="tigl.h" />

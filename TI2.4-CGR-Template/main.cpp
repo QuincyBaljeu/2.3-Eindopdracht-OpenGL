@@ -6,6 +6,7 @@
 #include "Pyramid.h"
 #include "FileIO.h"
 #include "ObjModel.h"
+#include "Manager.h"
 
 //lib files
 #include <GL/glew.h>
@@ -25,24 +26,12 @@ void init();
 void update();
 void draw();
 void keyCallBack(GLFWwindow*, int, int, int, int);
-void insertCubesIntoVector();
 
 //Attributes
 GLFWwindow* window;
 double lastFrameTime;
 FpsCam* camera;
-FileIO fileio;
-
-//Cubes
-Cube cube1(5, -1, 5);
-Cube cube2(5, -1, -5);
-
-//Pyramids
-Pyramid pyramid1(-5, -1, 5);
-Pyramid pyramid2(-5, - 1, -5);
-
-//3D model
-ObjModel* flowerModel;
+Manager manager;
 
 int main(void)
 {
@@ -77,33 +66,44 @@ int main(void)
 void init()
 {
     glfwSetKeyCallback(window, keyCallBack);
+
     camera = new FpsCam(window);
 
-    insertCubesIntoVector();
+    FileIO fileio;
+    std::vector<Cube> cubes;
+    std::vector<Shape> shapes;
 
-    //const std::string filePath = "test.txt";
-    //fileio.writeCubesToTxt(cubes, filePath);
-    
-    flowerModel = new ObjModel("models/bloemetje/PrimroseP.obj", 0, -0.75, 0);  
+    /*
+    shapes.push_back(cube1);
+    shapes.push_back(pyramid1);
 
-    fileio.writeCubesToTxt(v, "test2.txt");
+    cubes.push_back(cube1);
+    cubes.push_back(cube2);
+    fileio.writeCubesToTxt(cubes, "test2.txt");
 
     fileio.readCubesFromTxt("test2.txt");
+    */
 }
 
 void update()
 {
+
     double currentTime = glfwGetTime();
     double deltaTime = currentTime - lastFrameTime;
     lastFrameTime = currentTime;
     
     camera->update(window); 
     
+    manager.update(deltaTime);
+    
+    /*
     cube1.update(deltaTime);
     cube2.update(deltaTime);
 
     pyramid1.update(deltaTime);
     pyramid2.update(deltaTime);
+    */
+
 }
 
 void draw()
@@ -143,6 +143,10 @@ void draw()
     Environment environment;
     environment.draw();
 
+    
+
+    manager.draw();
+    /*
     //Cubes
     bool cube1Movement = true;
     cube1.setToMove(cube1Movement);
@@ -158,6 +162,7 @@ void draw()
  
     //3D model
     flowerModel->draw();
+    */
 }
 
 void keyCallBack(GLFWwindow* window, int key, int scancode, int action, int mods)
@@ -168,21 +173,13 @@ void keyCallBack(GLFWwindow* window, int key, int scancode, int action, int mods
     }
     else if (key == GLFW_KEY_SPACE && action == GLFW_PRESS) 
     {
-        cube2.toggleMovement();
+        manager.toggleMovement(1);
     }
     else if (key == GLFW_KEY_0 && action == GLFW_PRESS) 
     {
-        pyramid2.toggleMovement();
+        manager.toggleMovement(2);
     }
 }
 
-void insertCubesIntoVector()
-{
-    cubes.push_back(cube1);
-    cubes.push_back(cube2);
-    //cubes.push_back(cube3);
-    //cubes.push_back(cube4);
-    //cubes.push_back(cube5);
-}
 
 
