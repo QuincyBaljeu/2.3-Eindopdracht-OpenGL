@@ -18,15 +18,15 @@ void Shape::setToMove(bool&)
 
 float Shape::getX()
 {
-	return 0.0f;
+	return this->x;
 }
 
 float Shape::getY()
 {
-	return 0.0f;
+	return this->y;
 }
 
 float Shape::getZ()
 {
-	return 0.0f;
+	return this->z;
 }

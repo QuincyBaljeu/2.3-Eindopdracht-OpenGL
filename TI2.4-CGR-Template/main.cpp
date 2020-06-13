@@ -72,16 +72,27 @@ void init()
     std::vector<Cube> cubes;
     std::vector<Shape> shapes;
 
-    /*
-    shapes.push_back(cube1);
-    shapes.push_back(pyramid1);
+    Cube cube(0, 5, 10);
+    Cube cube2(30, 35, 40);
 
-    cubes.push_back(cube1);
+    Pyramid pyramid(15, 20, 25);
+
+    shapes.push_back(cube);
+    shapes.push_back(pyramid);
+
+    cubes.push_back(cube);
     cubes.push_back(cube2);
-    fileio.writeCubesToTxt(cubes, "test2.txt");
 
-    fileio.readCubesFromTxt("test2.txt");
-    */
+    std::cout << "Shapes" << "\n";
+    for (Shape s : shapes) 
+    {
+        std::cout << "Z of shape: " << s.getZ() << "\n";
+    }
+
+    fileio.writeCubesToTxt(cubes, "cubes.txt");
+
+    fileio.readCubesFromTxt("cubes.txt");
+
 }
 
 void update()

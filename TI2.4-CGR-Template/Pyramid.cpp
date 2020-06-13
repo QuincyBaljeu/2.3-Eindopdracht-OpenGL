@@ -20,8 +20,6 @@ Pyramid::~Pyramid()
 
 void Pyramid::update(double& deltaTime)
 {
-	std::cout << toMove << "\n";
-
 	if (toMove)
 	{
 		this->angle = 2.0f * deltaTime;

@@ -10,5 +10,7 @@ public:
 	virtual float getX();
 	virtual float getY();
 	virtual float getZ();
+private:
+	float x, y, z;
 };
 
